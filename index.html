@@ -9,7 +9,8 @@
     <canvas id="unity-canvas" width=960 height=540 style="width: 960px; height: 540px; background: #231F20"></canvas>
     <script src="Build/RicKy-Delivery.loader.js"></script>
     <script>
-      var meta = document.createElement('meta');
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
@@ -20,8 +21,8 @@
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
+        
+        createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/RicKy-Delivery.data",
         frameworkUrl: "Build/RicKy-Delivery.framework.js",
         codeUrl: "Build/RicKy-Delivery.wasm",
@@ -32,6 +33,22 @@
         //matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         //devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
+      }
+      else
+      {
+        createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/RicKy-Delivery.data",
+        frameworkUrl: "Build/RicKy-Delivery.framework.js",
+        codeUrl: "Build/RicKy-Delivery.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "共赴新春",
+        productVersion: "1.0",
+        //matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+      }
+     
     </script>
   </body>
 </html>
