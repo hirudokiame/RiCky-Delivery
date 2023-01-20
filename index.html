@@ -9,6 +9,7 @@
     <canvas id="unity-canvas" width=960 height=540 style="width: 960px; height: 540px; background: #231F20"></canvas>
     <script src="Build/RicKy-Delivery.loader.js"></script>
     <script>
+      
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
@@ -17,8 +18,8 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
 
         var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+        canvas.style.width = "90%";
+        canvas.style.height = "50.625%";
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
